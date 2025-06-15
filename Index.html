@@ -3,158 +3,579 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Craft: Conectando Talentos, Gerando Oportunidades</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Craft - Conectando Talentos, Gerando Oportunidades</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #f59e0b, #fbbf24);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 32px rgba(245, 158, 11, 0.3);
+        }
+
+        .logo-text {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ffffff, #fbbf24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #f59e0b, #fbbf24);
+            color: #1e3a8a;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px rgba(245, 158, 11, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(245, 158, 11, 0.4);
+        }
+
+        /* Sections */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #1e3a8a;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #6b7280;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Benefits Grid */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid #f3f4f6;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 40px rgba(30, 58, 138, 0.12);
+        }
+
+        .benefit-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #1e3a8a, #3b82f6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .benefit-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #1e3a8a;
+        }
+
+        .benefit-text {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        /* Two Column Layout */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .column {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .column:hover {
+            border-color: #f59e0b;
+            transform: translateY(-2px);
+        }
+
+        .column.professionals {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+        }
+
+        .column-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .column ul {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .column li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .column.clients li {
+            border-bottom-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .column li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 0.75rem;
+            color: #fbbf24;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* Steps Section */
+        .steps {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #f59e0b, #fbbf24);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1rem;
+            box-shadow: 0 4px 16px rgba(245, 158, 11, 0.3);
+        }
+
+        .step-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #1e3a8a;
+        }
+
+        .step-text {
+            color: #6b7280;
+        }
+
+        /* Why Choose Section */
+        .why-choose {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .why-item {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .why-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .why-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            background: linear-gradient(45deg, #f59e0b, #fbbf24);
+            text-align: center;
+            color: #1e3a8a;
+        }
+
+        .final-cta-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .final-cta-text {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button.dark {
+            background: #1e3a8a;
+            color: white;
+        }
+
+        .cta-button.dark:hover {
+            background: #1e40af;
+        }
+
+        /* Footer */
+        footer {
+            background: #1f2937;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25d366;
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
+            z-index: 1000;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+        }
+    </style>
 </head>
 <body>
-    <header class="main-header">
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/5541992181555?text=Olá! Gostaria de saber mais sobre os serviços da Craft." class="whatsapp-float" target="_blank">
+        📱
+    </a>
+
+    <!-- Header -->
+    <header>
         <div class="container">
             <div class="logo">
-                <img src="caminho/para/seu/logo-craft.png" alt="Logotipo Craft">
+                <div class="logo-icon">🔧</div>
+                <div class="logo-text">Craft</div>
             </div>
-            <nav class="main-nav">
-                </nav>
+            <div class="hero-content">
+                <h1 class="hero-title">Conectando Talentos, Gerando Oportunidades</h1>
+                <p class="hero-subtitle">Utilizamos as melhores estratégias de tráfego pago para levar seu serviço até quem realmente precisa.</p>
+                <a href="https://wa.me/5541992181555?text=Olá! Quero expandir meu negócio com a Craft!" class="cta-button" target="_blank">Expanda Seu Negócio</a>
+            </div>
         </div>
     </header>
 
-    <section class="hero-section">
+    <!-- Seções Para Profissionais e Clientes -->
+    <section class="section">
         <div class="container">
-            <h1>Craft: Conectando Talentos, Gerando Oportunidades.</h1>
-            <p class="subtitle">Utilizamos as melhores estratégias de tráfego pago para levar seu serviço até quem realmente precisa.</p>
-            <a href="#cadastro-profissionais" class="cta-button primary-cta">Comece Agora a Impulsionar seu Negócio!</a>
-        </div>
-    </section>
+            <div class="two-column">
+                <div class="column professionals">
+                    <h2 class="column-title">Para Profissionais Liberais e Prestadores de Serviço</h2>
+                    <ul>
+                        <li><strong>Mais Clientes:</strong> Chegue a um público qualificado através de campanhas direcionadas.</li>
+                        <li><strong>Foco no seu Trabalho:</strong> Deixe a prospecção conosco e dedique-se ao que você faz de melhor.</li>
+                        <li><strong>Resultados Mensuráveis:</strong> Acompanhe o desempenho das suas oportunidades.</li>
+                        <li><strong>Alcance Nacional/Local:</strong> Conecte-se com clientes onde quer que você esteja.</li>
+                    </ul>
+                    <a href="https://wa.me/5541992181555?text=Olá! Sou profissional liberal e quero me cadastrar na Craft!" class="cta-button" target="_blank">Cadastre-se Agora</a>
+                </div>
 
-    <section id="para-profissionais" class="section section-professionals">
-        <div class="container">
-            <h2>Para Profissionais Liberais e Prestadores de Serviço</h2>
-            <div class="benefits-grid">
-                <div class="benefit-item">
-                    <i class="fas fa-users"></i>
-                    <h3>Mais Clientes</h3>
-                    <p>Chegue a um público qualificado através de campanhas direcionadas.</p>
-                </div>
-                <div class="benefit-item">
-                    <i class="fas fa-briefcase"></i>
-                    <h3>Foco no seu Trabalho</h3>
-                    <p>Deixe a prospecção conosco e dedique-se ao que você faz de melhor.</p>
-                </div>
-                <div class="benefit-item">
-                    <i class="fas fa-chart-line"></i>
-                    <h3>Resultados Mensuráveis</h3>
-                    <p>Acompanhe o desempenho das suas oportunidades e o retorno do seu investimento.</p>
-                </div>
-                <div class="benefit-item">
-                    <i class="fas fa-globe-americas"></i>
-                    <h3>Alcance Nacional/Local</h3>
-                    <p>Conecte-se com clientes onde quer que você esteja, ou na sua região.</p>
+                <div class="column clients">
+                    <h2 class="column-title">Para Quem Busca Serviços</h2>
+                    <ul>
+                        <li><strong>Encontre o Profissional Ideal:</strong> Acesse uma rede de especialistas qualificados.</li>
+                        <li><strong>Serviços de Qualidade:</strong> Conecte-se com talentos verificados.</li>
+                        <li><strong>Agilidade e Praticidade:</strong> Encontre o que você precisa de forma rápida e eficiente.</li>
+                        <li><strong>Variedade de Serviços:</strong> Da reforma à consultoria, encontre tudo em um só lugar.</li>
+                    </ul>
+                    <a href="https://wa.me/5541992181555?text=Olá! Estou procurando um profissional através da Craft!" class="cta-button" target="_blank">Encontre seu Profissional</a>
                 </div>
             </div>
-            <a href="#cadastro-profissionais" class="cta-button secondary-cta">Cadastre-se Agora</a>
         </div>
     </section>
 
-    <section id="para-quem-busca" class="section section-seekers">
+    <!-- Como Funciona -->
+    <section class="section steps">
         <div class="container">
-            <h2>Para Quem Busca Serviços</h2>
-            <div class="benefits-grid">
-                <div class="benefit-item">
-                    <i class="fas fa-search"></i>
-                    <h3>Encontre o Profissional Ideal</h3>
-                    <p>Acesse uma rede de especialistas qualificados e verifique seus portfólios.</p>
-                </div>
-                <div class="benefit-item">
-                    <i class="fas fa-award"></i>
-                    <h3>Serviços de Qualidade</h3>
-                    <p>Conecte-se com talentos verificados e de alta performance.</p>
-                </div>
-                <div class="benefit-item">
-                    <i class="fas fa-clock"></i>
-                    <h3>Agilidade e Praticidade</h3>
-                    <p>Encontre o que você precisa de forma rápida e eficiente, sem burocracia.</p>
-                </div>
-                <div class="benefit-item">
-                    <i class="fas fa-th-large"></i>
-                    <h3>Variedade de Serviços</h3>
-                    <p>Da reforma à consultoria, encontre tudo em um só lugar.</p>
-                </div>
-            </div>
-            <a href="#buscar-servicos" class="cta-button primary-cta">Encontre seu Profissional</a>
-        </div>
-    </section>
-
-    <section id="como-funciona" class="section section-how-it-works">
-        <div class="container">
-            <h2>Como Funciona</h2>
+            <h2 class="section-title">Como Funciona</h2>
+            <p class="section-subtitle">Um processo simples e eficiente para conectar talentos a oportunidades</p>
             <div class="steps-grid">
-                <div class="step-item">
-                    <div class="step-icon"><i class="fas fa-user-plus"></i></div>
-                    <h3>1. Profissional se Cadastra</h3>
-                    <p>Preencha um rápido formulário com seus dados e serviços.</p>
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Profissional se Cadastra</h3>
+                    <p class="step-text">Registre-se em nossa plataforma e conte-nos sobre seus serviços e especialidades.</p>
                 </div>
-                <div class="step-item">
-                    <div class="step-icon"><i class="fas fa-rocket"></i></div>
-                    <h3>2. Craft Otimiza e Promove</h3>
-                    <p>Nossa equipe de especialistas impulsiona seu perfil via tráfego pago.</p>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Craft Otimiza e Promove</h3>
+                    <p class="step-text">Criamos e gerenciamos campanhas de tráfego pago personalizadas para seu perfil.</p>
                 </div>
-                <div class="step-item">
-                    <div class="step-icon"><i class="fas fa-handshake"></i></div>
-                    <h3>3. Clientes Qualificados Encontram</h3>
-                    <p>Seus serviços são exibidos para quem realmente busca por eles.</p>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Clientes Qualificados Encontram</h3>
+                    <p class="step-text">Nossos anúncios direcionam clientes interessados diretamente para você.</p>
                 </div>
-                <div class="step-item">
-                    <div class="step-icon"><i class="fas fa-check-circle"></i></div>
-                    <h3>4. Conexão Realizada</h3>
-                    <p>Receba propostas e inicie novas parcerias de sucesso.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="por-que-escolher" class="section section-why-choose-us">
-        <div class="container">
-            <h2>Por Que Escolher a Craft?</h2>
-            <div class="why-choose-grid">
-                <div class="why-choose-item">
-                    <i class="fas fa-bullhorn"></i>
-                    <h3>Especialistas em Tráfego Pago</h3>
-                    <p>Nossas campanhas são desenhadas especificamente para o seu sucesso.</p>
-                </div>
-                <div class="why-choose-item">
-                    <i class="fas fa-headset"></i>
-                    <h3>Suporte Dedicado</h3>
-                    <p>Estamos aqui para impulsionar seu crescimento e tirar suas dúvidas.</p>
-                </div>
-                <div class="why-choose-item">
-                    <i class="fas fa-lightbulb"></i>
-                    <h3>Tecnologia e Inovação</h3>
-                    <p>Ferramentas modernas para conectar você ao seu público-alvo.</p>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Conexão Realizada</h3>
+                    <p class="step-text">Você recebe leads qualificados e pode focar no que faz de melhor: seu trabalho.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="final-cta-section">
+    <!-- Por Que Escolher a Craft -->
+    <section class="section why-choose">
         <div class="container">
-            <h2>Pronto para Conectar-se?</h2>
-            <a href="#cadastro-profissionais" class="cta-button primary-cta">Comece Agora a Impulsionar seu Negócio!</a>
+            <h2 class="section-title">Por Que Escolher a Craft?</h2>
+            <p class="section-subtitle">Os diferenciais que fazem toda a diferença no seu sucesso</p>
+            <div class="why-grid">
+                <div class="why-item">
+                    <div class="why-icon">🎯</div>
+                    <h3 class="why-title">Especialistas em Tráfego Pago</h3>
+                    <p>Nossas campanhas são desenhadas especificamente para o seu sucesso e crescimento.</p>
+                </div>
+                <div class="why-item">
+                    <div class="why-icon">🤝</div>
+                    <h3 class="why-title">Suporte Dedicado</h3>
+                    <p>Estamos aqui para impulsionar seu crescimento com acompanhamento personalizado.</p>
+                </div>
+                <div class="why-item">
+                    <div class="why-icon">🚀</div>
+                    <h3 class="why-title">Tecnologia e Inovação</h3>
+                    <p>Ferramentas modernas e estratégias atualizadas para conectar você ao seu público.</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <footer class="main-footer">
+    <!-- CTA Final -->
+    <section class="section final-cta">
         <div class="container">
-            <p>&copy; Todos os direitos reservados - Craft 2025</p>
-            <div class="social-links">
-                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-            <p>contato@craft.com.br | (XX) XXXX-XXXX</p>
+            <h2 class="final-cta-title">Pronto para Conectar-se?</h2>
+            <p class="final-cta-text">Comece agora a impulsionar seu negócio e alcance novos patamares de sucesso!</p>
+            <a href="https://wa.me/5541992181555?text=Olá! Quero começar agora com a Craft!" class="cta-button dark" target="_blank">Comece Agora</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Craft - Todos os direitos reservados</p>
+            <p>WhatsApp: (41) 99218-1555</p>
         </div>
     </footer>
+
+    <script>
+        // Smooth scrolling and animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add animation class to elements when they come into view
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-on-scroll');
+                    }
+                });
+            });
+
+            // Observe all sections
+            document.querySelectorAll('.section').forEach(section => {
+                observer.observe(section);
+            });
+
+            // Add hover effects to cards
+            document.querySelectorAll('.benefit-card, .column, .why-item').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-4px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
 </body>
 </html>
