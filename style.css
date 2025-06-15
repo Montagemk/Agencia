@@ -1,0 +1,401 @@
+/* Variáveis de Cores */
+:root {
+    --color-primary-dark: #1E3A8A; /* Azul Marinho da Craft */
+    --color-primary-light: #F59E0B; /* Laranja/Amarelo da Craft */
+    --color-text-dark: #333;
+    --color-text-light: #f4f4f4;
+    --color-background-light: #f8f8f8;
+    --color-background-medium: #e0e0e0;
+    --color-background-dark: #2c2c2c;
+    --color-accent-blue: #007bff; /* Um azul mais vibrante para detalhes, se necessário */
+}
+
+/* Reset Básico e Box Sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    color: var(--color-text-dark);
+    background-color: #fff;
+    scroll-behavior: smooth;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--color-primary-dark);
+    line-height: 1.2;
+    margin-bottom: 0.8em;
+}
+
+h1 {
+    font-size: 3.2em;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 2.5em;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 1.5em;
+}
+
+h3 {
+    font-size: 1.8em;
+    font-weight: 600;
+}
+
+p {
+    margin-bottom: 1em;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-primary-dark);
+}
+
+/* --- Header --- */
+.main-header {
+    background-color: #fff;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--color-background-medium);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px; /* Ajuste conforme o tamanho do seu logo */
+    max-width: 100%;
+}
+
+.main-nav a {
+    margin-left: 25px;
+    font-weight: 600;
+    color: var(--color-primary-dark);
+    transition: color 0.3s ease;
+}
+
+.main-nav a:hover {
+    color: var(--color-primary-light);
+}
+
+/* --- Botões CTA --- */
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    text-align: center;
+}
+
+.primary-cta {
+    background-color: var(--color-primary-dark);
+    color: var(--color-text-light);
+    border: 2px solid var(--color-primary-dark);
+}
+
+.primary-cta:hover {
+    background-color: #152d6a; /* Tom mais escuro do azul marinho */
+    transform: translateY(-2px);
+}
+
+.secondary-cta {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary-dark);
+    border: 2px solid var(--color-primary-light);
+}
+
+.secondary-cta:hover {
+    background-color: #e08b00; /* Tom mais escuro do laranja/amarelo */
+    transform: translateY(-2px);
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('caminho/para/sua/imagem-hero.jpg') no-repeat center center/cover;
+    color: var(--color-text-light);
+    padding: 100px 0;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    min-height: 600px; /* Altura mínima para a seção hero */
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-section h1 {
+    color: var(--color-text-light);
+    margin-bottom: 20px;
+    font-size: 3.8em;
+}
+
+.hero-section .subtitle {
+    font-size: 1.5em;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- Seções de Conteúdo Genéricas --- */
+.section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.section:nth-of-type(even) { /* Aplica fundo cinza claro para seções pares */
+    background-color: var(--color-background-light);
+}
+
+.section-professionals .benefits-grid,
+.section-seekers .benefits-grid,
+.steps-grid,
+.why-choose-grid {
+    display: grid;
+    gap: 30px;
+    margin-top: 50px;
+    margin-bottom: 40px;
+    justify-content: center; /* Centraliza o grid */
+}
+
+/* Grids - Colunas para Desktop */
+.section-professionals .benefits-grid,
+.section-seekers .benefits-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.steps-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.why-choose-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+
+.benefit-item,
+.step-item,
+.why-choose-item {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+
+.benefit-item:hover,
+.step-item:hover,
+.why-choose-item:hover {
+    transform: translateY(-5px);
+}
+
+.benefit-item i,
+.step-item .step-icon i,
+.why-choose-item i {
+    font-size: 3em;
+    color: var(--color-primary-light);
+    margin-bottom: 15px;
+    display: block; /* Garante que o ícone ocupe sua própria linha */
+}
+
+.step-item .step-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: var(--color-primary-dark);
+    margin: 0 auto 20px auto;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.step-item .step-icon i {
+    color: var(--color-text-light);
+    font-size: 2.5em;
+    margin-bottom: 0; /* Remove a margem extra do ícone aqui */
+}
+
+.benefit-item h3,
+.step-item h3,
+.why-choose-item h3 {
+    color: var(--color-primary-dark);
+    margin-bottom: 10px;
+}
+
+.benefit-item p,
+.step-item p,
+.why-choose-item p {
+    font-size: 1.1em;
+    color: #555;
+}
+
+/* Seção de CTA Final */
+.final-cta-section {
+    background-color: var(--color-primary-dark);
+    color: var(--color-text-light);
+    padding: 60px 0;
+    text-align: center;
+}
+
+.final-cta-section h2 {
+    color: var(--color-text-light);
+    margin-bottom: 40px;
+}
+
+/* --- Footer --- */
+.main-footer {
+    background-color: var(--color-background-dark);
+    color: var(--color-text-light);
+    padding: 40px 0;
+    font-size: 0.9em;
+    text-align: center;
+}
+
+.main-footer .social-links a {
+    color: var(--color-text-light);
+    font-size: 1.5em;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.main-footer .social-links a:hover {
+    color: var(--color-primary-light);
+}
+
+.main-footer p {
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+/* --- Responsividade (Media Queries) --- */
+@media (max-width: 992px) {
+    h1 {
+        font-size: 2.8em;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    .hero-section {
+        min-height: 500px;
+        padding: 80px 0;
+    }
+
+    .hero-section .subtitle {
+        font-size: 1.3em;
+    }
+
+    .section {
+        padding: 60px 0;
+    }
+
+    .section-professionals .benefits-grid,
+    .section-seekers .benefits-grid,
+    .steps-grid,
+    .why-choose-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .main-header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .main-nav {
+        margin-top: 15px;
+    }
+
+    .main-nav a {
+        margin: 0 10px;
+    }
+
+    h1 {
+        font-size: 2.5em;
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+
+    .hero-section {
+        min-height: 400px;
+        padding: 60px 0;
+    }
+
+    .hero-section .subtitle {
+        font-size: 1.2em;
+    }
+
+    .section {
+        padding: 40px 0;
+    }
+
+    .section-professionals .benefits-grid,
+    .section-seekers .benefits-grid,
+    .steps-grid,
+    .why-choose-grid {
+        grid-template-columns: 1fr; /* Uma coluna em telas menores */
+    }
+
+    .benefit-item,
+    .step-item,
+    .why-choose-item {
+        padding: 25px;
+    }
+
+    .cta-button {
+        padding: 12px 25px;
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.6em;
+    }
+
+    .hero-section {
+        padding: 40px 0;
+    }
+
+    .hero-section .subtitle {
+        font-size: 1em;
+    }
+
+    .container {
+        padding: 0 15px;
+    }
+
+    .logo img {
+        height: 40px;
+    }
+}
