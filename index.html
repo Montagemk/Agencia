@@ -3,159 +3,828 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Craft: Sua Vitrine Digital Que Conecta Você a Mais Clientes!</title>
-    <link rel="stylesheet" href="style.css">    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Craft - Sua Vitrine Digital Profissional</title>
+
+    <meta property="og:title" content="Craft - Sua Vitrine Digital Profissional">
+    <meta property="og:description" content="Tenha uma presença online profissional e faça seus serviços serem encontrados por quem realmente precisa deles.">
+    <meta property="og:image" content="https://craftprofissionais.store/og-image.jpg">
+    <meta property="og:url" content="https://craftprofissionais.store">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Craft - Sua Vitrine Digital Profissional">
+    <meta name="twitter:description" content="Tenha uma presença online profissional e faça seus serviços serem encontrados por quem realmente precisa deles.">
+    <meta name="twitter:image" content="https://craftprofissionais.store/og-image.jpg">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Variáveis CSS */
+        :root {
+            --primary-color: #6A0DAD; /* Roxo vibrante */
+            --secondary-color: #FFD700; /* Dourado */
+            --accent-color: #FF8C00; /* Laranja */
+            --text-color: #333;
+            --light-text-color: #f4f4f4;
+            --background-light: #f9f9f9;
+            --background-dark: #2c3e50;
+            --shadow-light: rgba(0, 0, 0, 0.1);
+            --shadow-dark: rgba(0, 0, 0, 0.3);
+            --border-radius: 8px;
+            --transition-speed: 0.3s ease;
+        }
+
+        /* Reset Básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--background-light);
+            overflow-x: hidden;
+        }
+
+        /* Tipografia */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary-color);
+            margin-bottom: 0.8em;
+        }
+
+        h1 {
+            font-size: 2.8em;
+            line-height: 1.1;
+        }
+
+        h2 {
+            font-size: 2.2em;
+            text-align: center;
+            margin-bottom: 1.5em;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        p {
+            margin-bottom: 1em;
+        }
+
+        /* Layout Geral */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        section {
+            padding: 80px 20px;
+            opacity: 0; /* Para animação */
+            transform: translateY(20px); /* Para animação */
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Botões */
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--light-text-color);
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: background-color var(--transition-speed), transform var(--transition-speed);
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary-color);
+            color: var(--light-text-color);
+        }
+
+        /* Header / Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #8A2BE2 100%); /* Roxo com degradê */
+            color: var(--light-text-color);
+            padding: 100px 20px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://via.placeholder.com/1920x1080/6A0DAD/FFFFFF?text=Profissional+Autonomo+Conectando') no-repeat center center/cover; /* Imagem de fundo hero */
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            color: var(--light-text-color);
+            font-size: 3em;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease-out 0.3s forwards;
+            opacity: 0;
+        }
+
+        .hero .btn {
+            animation: fadeInUp 1s ease-out 0.6s forwards;
+            opacity: 0;
+        }
+
+        /* Section Problema/Solução */
+        .problem-solution {
+            background-color: var(--background-light);
+            text-align: center;
+        }
+
+        .problem-solution .content-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .problem, .solution {
+            flex: 1;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 20px var(--shadow-light);
+            max-width: 500px;
+            width: 100%;
+            transition: transform 0.3s ease;
+        }
+
+        .problem {
+            background-color: #ffe0e0;
+            border: 2px solid #ff6b6b;
+        }
+
+        .solution {
+            background-color: #e0f7fa;
+            border: 2px solid #00bcd4;
+        }
+
+        .problem h3, .solution h3 {
+            color: var(--primary-color);
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        .problem p, .solution p {
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        /* Como Funciona */
+        .how-it-works {
+            background-color: var(--background-dark);
+            color: var(--light-text-color);
+        }
+
+        .how-it-works h2 {
+            color: var(--light-text-color);
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .step-card {
+            background-color: #3e5163;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: 0 8px 16px var(--shadow-dark);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .step-card:hover {
+            transform: translateY(-10px);
+            background-color: var(--primary-color);
+        }
+
+        .step-card::before {
+            content: attr(data-step);
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            font-size: 3em;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.1);
+            z-index: 0;
+        }
+
+        .step-card h3 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            font-size: 1.5em;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-card p {
+            color: #ccc;
+            font-size: 1em;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Público-Alvo */
+        .target-audience {
+            background-color: var(--background-light);
+            text-align: center;
+        }
+
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .audience-card {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px var(--shadow-light);
+            transition: transform 0.3s ease;
+        }
+
+        .audience-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .audience-card i {
+            font-size: 3em;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .audience-card h4 {
+            font-size: 1.2em;
+            color: var(--text-color);
+            margin: 0;
+        }
+
+        /* Benefícios Inclusos */
+        .benefits {
+            background: linear-gradient(135deg, #FFEFBA 0%, #FFFFFF 100%); /* Fundo claro com toque de dourado */
+        }
+
+        .benefits h2 {
+            color: var(--primary-color);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .benefit-item {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 8px 16px var(--shadow-light);
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .benefit-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .benefit-item i {
+            font-size: 2.5em;
+            color: var(--primary-color);
+            flex-shrink: 0;
+        }
+
+        .benefit-item h3 {
+            font-size: 1.3em;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .benefit-item p {
+            font-size: 0.95em;
+            color: #666;
+        }
+
+        /* Depoimentos */
+        .testimonials {
+            background-color: var(--background-dark);
+            color: var(--light-text-color);
+            padding-top: 100px;
+            padding-bottom: 100px;
+        }
+
+        .testimonials h2 {
+            color: var(--light-text-color);
+        }
+
+        .testimonial-carousel {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            gap: 30px;
+            padding-bottom: 20px;
+            margin-top: 50px;
+        }
+
+        .testimonial-card {
+            flex: 0 0 90%; /* Ajuste para mobile, 90% da largura */
+            scroll-snap-align: start;
+            background-color: #3e5163;
+            padding: 35px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 8px 16px var(--shadow-dark);
+            position: relative;
+            max-width: 400px; /* Limite a largura em desktop */
+            min-width: 300px;
+        }
+
+        .testimonial-card::before {
+            content: '“';
+            font-family: serif;
+            font-size: 5em;
+            color: rgba(255, 255, 255, 0.1);
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            z-index: 0;
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: #ccc;
+            font-size: 1.1em;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-card strong {
+            display: block;
+            margin-top: 10px;
+            color: var(--secondary-color);
+            font-size: 1.2em;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* CTA Final */
+        .final-cta {
+            background: linear-gradient(45deg, var(--accent-color) 0%, var(--secondary-color) 100%);
+            padding: 80px 20px;
+            text-align: center;
+            color: var(--primary-color);
+        }
+
+        .final-cta h2 {
+            color: var(--primary-color);
+            font-size: 2.5em;
+        }
+
+        .final-cta p {
+            font-size: 1.2em;
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            color: #555;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #ccc;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.9em;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* WhatsApp Button Flutuante */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366; /* WhatsApp Green */
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5em;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        /* Animações (Keyframes) */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Iconografia (Font Awesome) */
+        @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
+        /* Media Queries para Responsividade */
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 3.5em;
+            }
+            h2 {
+                font-size: 2.8em;
+            }
+            .problem-solution .content-wrapper {
+                flex-direction: row;
+                justify-content: center;
+            }
+            .problem, .solution {
+                max-width: 45%;
+            }
+            .testimonial-carousel {
+                flex-wrap: nowrap;
+                justify-content: center;
+            }
+            .testimonial-card {
+                flex: 0 0 calc(33.33% - 20px); /* 3 cards em desktop */
+            }
+        }
+
+        @media (min-width: 1024px) {
+            h1 {
+                font-size: 4.5em;
+            }
+            .step-card {
+                padding: 40px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .hero {
+                padding: 80px 20px;
+            }
+            .hero h1 {
+                font-size: 2.2em;
+            }
+            .hero p {
+                font-size: 1em;
+            }
+            section {
+                padding: 60px 20px;
+            }
+            h2 {
+                font-size: 2em;
+            }
+            .steps-grid, .audience-grid, .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            .testimonial-card {
+                flex: 0 0 95%; /* Maior em telas pequenas para deslizar */
+            }
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 2em;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <div class="logo">Craft</div>
-            <nav class="nav-menu">
-                <ul>
-                    <li><a href="#como-funciona">Como Funciona</a></li>
-                    <li><a href="#para-quem-e">Para Quem É</a></li>
-                    <li><a href="#contato">Contato</a></li>
-                </ul>
-            </nav>
-            <a href="https://api.whatsapp.com/send?phone=5541984608623&text=Ol%C3%A1!%20Tenho%20interesse%20em%20criar%20minha%20Vitrine%20Digital%20com%20a%20Craft." class="btn-whatsapp-header" target="_blank">Fale Conosco no WhatsApp!</a>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1 class="animate-on-scroll">Craft: Sua Vitrine Digital Que Conecta Você a Mais Clientes!</h1>
+            <p class="animate-on-scroll">Chega de se esconder! Tenha uma presença online profissional e faça seus serviços serem encontrados por quem realmente precisa deles.</p>
+            <a href="https://api.whatsapp.com/send?phone=5541984608623&text=Ol%C3%A1!%20Tenho%20interesse%20em%20criar%20minha%20Vitrine%20Digital%20com%20a%20Craft." class="btn animate-on-scroll" data-cta-name="Hero CTA">QUERO MINHA VITRINE DIGITAL!</a>
         </div>
     </header>
 
-    <main>
-        <section class="hero-section">
-            <div class="container">
-                <div class="hero-content">
-                    <h1>Craft: Sua Vitrine Digital Que Conecta Você a Mais Clientes!</h1>
-                    <p class="subtitle">Chega de se esconder! Tenha uma presença online profissional e faça seus serviços serem encontrados por quem realmente precisa deles.</p>
-                    <a href="https://api.whatsapp.com/send?phone=5541984608623&text=Ol%C3%A1!%20Tenho%20interesse%20em%20criar%20minha%20Vitrine%20Digital%20com%20a%20Craft." class="btn-primary" target="_blank">QUERO MINHA VITRINE DIGITAL!</a>
-                    <p class="social-proof">Mais de **100+ profissionais** já transformaram sua visibilidade!</p>
-                </div>
-                <div class="hero-image">
-                    <img src="/hero.jpg" alt="Profissional autônomo conectando-se com clientes através de um dispositivo digital.">
-                </div>
-            </div>
-        </section>
-
-        <section class="problem-solution-section">
-            <div class="container">
-                <h2>Seu Talento Merece Ser Visto!</h2>
-                <div class="content-wrapper">
-                    <div class="problem">
-                        <h3>O Problema:</h3>
-                        <p>Você é um profissional incrível, mas sabe que poderia ter mais clientes se fosse mais fácil te encontrar? A divulgação boca a boca é boa, mas o digital pode levar seu trabalho para outro nível!</p>
-                    </div>
-                    <div class="solution">
-                        <h3>Sua Solução:</h3>
-                        <p>A **Vitrine Digital Exclusiva da Craft**! Criamos uma página profissional e otimizada para você apresentar seus serviços de forma irresistível. É como ter um cartão de visitas turbinado que trabalha 24h por dia para você, atraindo novos interessados.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="como-funciona" class="how-it-works-section">
-            <div class="container">
-                <h2>3 Passos Simples para Multiplicar Suas Oportunidades:</h2>
-                <div class="steps-grid">
-                    <div class="step-item">
-                        <i class="fas fa-desktop"></i>
-                        <h3>1. Sua Página Personalizada</h3>
-                        <p>Montamos sua vitrine com sua identidade, fotos do seu trabalho e a descrição dos seus serviços.</p>
-                    </div>
-                    <div class="step-item">
-                        <i class="fas fa-lightbulb"></i>
-                        <h3>2. Destaque Seus Talentos</h3>
-                        <p>Mostre o que você faz de melhor de forma clara e profissional, com depoimentos de clientes (se você tiver!).</p>
-                    </div>
-                    <div class="step-item">
-                        <i class="fab fa-whatsapp"></i>
-                        <h3>3. Conexão Direta e Imediata</h3>
-                        <p>Um único clique e o cliente já está no seu WhatsApp pronto para conversar, tirar dúvidas e agendar!</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="para-quem-e" class="for-whom-section">
-            <div class="container">
-                <h2>Essa Vitrine Digital é Perfeita Para Você, Se Você É:</h2>
-                <div class="professions-grid">
-                    <div class="profession-item">
-                        <i class="fas fa-cut"></i><i class="fas fa-brush"></i>
-                        <h3>Trancista, Maquiador(a), Cabeleireiro(a)</h3>
-                        <p>Mostre seu portfólio e encante novos clientes!</p>
-                    </div>
-                    <div class="profession-item">
-                        <i class="fas fa-wrench"></i><i class="fas fa-hammer"></i>
-                        <h3>Eletricista, Encanador, Marceneiro</h3>
-                        <p>Seja encontrado na hora que alguém precisa de um reparo urgente!</p>
-                    </div>
-                    <div class="profession-item">
-                        <i class="fas fa-book-open"></i><i class="fas fa-dumbbell"></i>
-                        <h3>Aulas Particulares, Personal Trainer</h3>
-                        <p>Divulgue suas especialidades e sua metodologia!</p>
-                    </div>
-                    <div class="profession-item">
-                        <i class="fas fa-lightbulb"></i><i class="fas fa-handshake"></i>
-                        <h3>Qualquer Prestador de Serviço Autônomo</h3>
-                        <p>Se você tem um talento e oferece um serviço, a Craft te ajuda a ser visto!</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="what-you-get-section">
-            <div class="container">
-                <h2>Sua Vitrine Digital Inclui:</h2>
-                <ul class="benefits-list">
-                    <li><i class="fas fa-check-circle"></i> Design Moderno e Profissional</li>
-                    <li><i class="fas fa-check-circle"></i> Seus Serviços Detalhados</li>
-                    <li><i class="fas fa-check-circle"></i> Galeria de Fotos do Seu Trabalho</li>
-                    <li><i class="fas fa-check-circle"></i> Informações de Contato Claras</li>
-                    <li><i class="fas fa-check-circle"></i> **Botão Direto para o Seu WhatsApp**</li>
-                    <li><i class="fas fa-check-circle"></i> Otimização para ser encontrada (preparada para ser um ímã de clientes!)</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="testimonials-section">
-            <div class="container">
-                <h2>O Que Nossos Clientes Dizem:</h2>
-                <div class="testimonials-grid">
-                    <div class="testimonial-item">
-                        <p>"Desde que tenho minha Vitrine Digital, recebo muito mais contatos no WhatsApp. Meus agendamentos aumentaram bastante!"</p>
-                        <span>- Maria S., Trancista</span>
-                    </div>
-                    <div class="testimonial-item">
-                        <p>"Finalmente um lugar para mostrar meu trabalho de forma profissional. A Craft superou minhas expectativas!"</p>
-                        <span>- João P., Eletricista</span>
-                    </div>
-                    <div class="testimonial-item">
-                        <p>"Simples, rápido e eficaz. Consegui novos alunos em pouquíssimo tempo. Recomendo muito!"</p>
-                        <span>- Ana L., Professora Particular</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="cta-final-section">
-            <div class="container">
-                <h2>Não perca mais tempo! Leve seu talento para o digital e conquiste mais clientes.</h2>
-                <a href="https://api.whatsapp.com/send?phone=5541984608623&text=Ol%C3%A1!%20Tenho%20interesse%20em%20criar%20minha%20Vitrine%20Digital%20com%20a%20Craft." class="btn-primary" target="_blank">Fale com a Craft no WhatsApp e Garanta Sua Vitrine!</a>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
+    <section id="problema-solucao" class="problem-solution animate-on-scroll">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">Craft</div>
-                <p>© 2024 Craft. Todos os direitos reservados.</p>
-                <p id="contato">Contato: (41) 9 8460-8623</p>
-                <div class="social-icons">
-                    </div>
+            <h2>Transforme Desafios em Oportunidades</h2>
+            <div class="content-wrapper">
+                <div class="problem card-hover-effect">
+                    <h3>O Problema que Você Enfrenta</h3>
+                    <p>Você é um profissional autônomo talentoso, mas se sente invisível? A dificuldade em ser encontrado online é real. Redes sociais são ótimas, mas nem sempre te conectam com quem busca seu serviço especificamente. Você perde tempo explicando seu trabalho, enviando fotos e respondendo as mesmas perguntas repetidamente.</p>
+                </div>
+                <div class="solution card-hover-effect">
+                    <h3>A Solução Inovadora da Craft</h3>
+                    <p>Imagine ter um espaço exclusivo na internet, funcionando como seu cartão de visitas digital 24/7. Com a Vitrine Digital da Craft, você profissionaliza sua imagem, exibe seu portfólio completo e facilita a vida dos seus clientes. Chega de improvisos, comece a ser encontrado de verdade!</p>
+                </div>
             </div>
         </div>
+    </section>
+
+    <section id="como-funciona" class="how-it-works animate-on-scroll">
+        <div class="container">
+            <h2>Como a Craft Conecta Você ao Sucesso</h2>
+            <div class="steps-grid">
+                <div class="step-card" data-step="01">
+                    <h3>Sua Página Personalizada</h3>
+                    <p>Nossa equipe cria uma vitrine digital sob medida para você, com sua identidade visual e informações essenciais, tudo de forma rápida e descomplicada.</p>
+                </div>
+                <div class="step-card" data-step="02">
+                    <h3>Seus Talentos em Destaque</h3>
+                    <p>Mostre seu trabalho como nunca antes! Adicione fotos de alta qualidade, descrições detalhadas de seus serviços e um portfólio que impressiona.</p>
+                 fungicide: 'https://via.placeholder.com/1920x1080/6A0DAD/FFFFFF?text=Profissional+Autonomo+Conectando', /* Atualizado para o valor correto */
+                    <p>Sua vitrine terá um botão direto para o WhatsApp, permitindo que clientes interessados entrem em contato com você de forma instantânea e sem burocracia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="publico-alvo" class="target-audience animate-on-scroll">
+        <div class="container">
+            <h2>Quem Pode Brilhar com a Craft?</h2>
+            <p>Seja qual for a sua paixão e seu serviço, a Craft é para você!</p>
+            <div class="audience-grid">
+                <div class="audience-card card-hover-effect">
+                    <i class="fas fa-cut"></i>
+                    <h4>Trancistas & Cabeleireiros(as)</h4>
+                </div>
+                <div class="audience-card card-hover-effect">
+                    <i class="fas fa-brush"></i>
+                    <h4>Maquiadores(as)</h4>
+                </div>
+                <div class="audience-card card-hover-effect">
+                    <i class="fas fa-wrench"></i>
+                    <h4>Eletricistas & Encanadores</h4>
+                </div>
+                <div class="audience-card card-hover-effect">
+                    <i class="fas fa-hammer"></i>
+                    <h4>Marceneiros</h4>
+                </div>
+                <div class="audience-card card-hover-effect">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h4>Professores Particulares</h4>
+                </div>
+                <div class="audience-card card-hover-effect">
+                    <i class="fas fa-dumbbell"></i>
+                    <h4>Personal Trainers</h4>
+                </div>
+                <div class="audience-card card-hover-effect">
+                    <i class="fas fa-handshake"></i>
+                    <h4>E Todo Prestador de Serviço Autônomo!</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="beneficios" class="benefits animate-on-scroll">
+        <div class="container">
+            <h2>Vantagens Exclusivas da Sua Vitrine Digital</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item card-hover-effect">
+                    <i class="fas fa-paint-brush"></i>
+                    <div>
+                        <h3>Design Moderno e Profissional</h3>
+                        <p>Uma vitrine que reflete a qualidade do seu trabalho, com visual atraente e navegação intuitiva.</p>
+                    </div>
+                </div>
+                <div class="benefit-item card-hover-effect">
+                    <i class="fas fa-file-alt"></i>
+                    <div>
+                        <h3>Serviços Detalhados</h3>
+                        <p>Apresente cada serviço com clareza, preços (se desejar) e informações que seu cliente precisa saber.</p>
+                    </div>
+                </div>
+                <div class="benefit-item card-hover-effect">
+                    <i class="fas fa-images"></i>
+                    <div>
+                        <h3>Galeria de Fotos do Trabalho</h3>
+                        <p>Mostre seus projetos, transformações e resultados através de uma galeria impecável.</p>
+                    </div>
+                </div>
+                <div class="benefit-item card-hover-effect">
+                    <i class="fas fa-address-book"></i>
+                    <div>
+                        <h3>Informações de Contato Claras</h3>
+                        <p>Seus clientes nunca mais terão dificuldade em te encontrar ou agendar um serviço.</p>
+                    </div>
+                </div>
+                <div class="benefit-item card-hover-effect">
+                    <i class="fab fa-whatsapp"></i>
+                    <div>
+                        <h3>Botão Direto para WhatsApp</h3>
+                        <p>Agilidade no contato! Um clique e seu cliente já pode falar com você.</p>
+                    </div>
+                </div>
+                <div class="benefit-item card-hover-effect">
+                    <i class="fas fa-search-dollar"></i>
+                    <div>
+                        <h3>Otimização para ser Encontrada</h3>
+                        <p>Preparamos sua vitrine para aparecer nas buscas, trazendo mais visibilidade e clientes potenciais.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="depoimentos" class="testimonials animate-on-scroll">
+        <div class="container">
+            <h2>O Que Nossos Clientes Dizem</h2>
+            <div class="testimonial-carousel">
+                <div class="testimonial-card">
+                    <p>"Desde que tenho minha Vitrine Digital, recebo muito mais contatos no WhatsApp. Meus agendamentos aumentaram bastante!"</p>
+                    <strong>Maria S., Trancista</strong>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Finalmente um lugar para mostrar meu trabalho de forma profissional. A Craft superou minhas expectativas!"</p>
+                    <strong>João P., Eletricista</strong>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Simples, rápido e eficaz. Consegui novos alunos em pouquíssimo tempo. Recomendo muito!"</p>
+                    <strong>Ana L., Professora Particular</strong>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cta-final" class="final-cta animate-on-scroll">
+        <div class="container">
+            <h2>Pronto para Levar Seus Serviços Para o Próximo Nível?</h2>
+            <p>Não perca mais tempo e clientes! Tenha sua vitrine digital profissional e comece a ser encontrado por quem realmente busca seus serviços. Clique no botão abaixo e fale com a gente no WhatsApp para começar agora mesmo!</p>
+            <a href="https://api.whatsapp.com/send?phone=5541984608623&text=Ol%C3%A1!%20Tenho%20interesse%20em%20criar%20minha%20Vitrine%20Digital%20com%20a%20Craft." class="btn btn-secondary" data-cta-name="Final CTA">QUERO MINHA VITRINE DIGITAL AGORA!</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Craft. Todos os direitos reservados. Sua vitrine digital profissional.</p>
+        </div>
     </footer>
+
+    <a href="https://api.whatsapp.com/send?phone=5541984608623&text=Ol%C3%A1!%20Tenho%20interesse%20em%20criar%20minha%20Vitrine%20Digital%20com%20a%20Craft." class="whatsapp-float" target="_blank" aria-label="Fale conosco pelo WhatsApp" data-cta-name="WhatsApp Float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Animações on Scroll (Fade-in / Slide-in)
+        const sections = document.querySelectorAll('section, .card-hover-effect, .btn.animate-on-scroll');
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15 // Ajuste conforme necessário para o elemento aparecer
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    // Para elementos que devem animar uma única vez, você pode descomentar a linha abaixo:
+                    // observer.unobserve(entry.target);
+                } else {
+                    // Opcional: remover a classe quando sair da tela para reanimar ao rolar para cima
+                    // entry.target.classList.remove('is-visible');
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Lazy Loading para Imagens (Exemplo - se tivesse imagens no conteúdo)
+        // Para a imagem hero que é um background, o lazy loading é diferente.
+        // Para tags <img>, o processo seria:
+        // const lazyImages = document.querySelectorAll('img.lazyload');
+        // const lazyLoadObserver = new IntersectionObserver((entries, observer) => {
+        //     entries.forEach(entry => {
+        //         if (entry.isIntersecting) {
+        //             const img = entry.target;
+        //             img.src = img.dataset.src;
+        //             img.classList.remove('lazyload');
+        //             observer.unobserve(img);
+        //         }
+        //     });
+        // });
+        // lazyImages.forEach(img => lazyLoadObserver.observe(img));
+
+        // Tracking de Cliques (Exemplo simples para console)
+        document.querySelectorAll('.btn, .whatsapp-float').forEach(button => {
+            button.addEventListener('click', function() {
+                const ctaName = this.dataset.ctaName || 'Botão Desconhecido';
+                console.log(`CTA Clicado: ${ctaName}`);
+                // Aqui você integraria com ferramentas de analytics como Google Analytics
+                // ex: gtag('event', 'click', { 'event_category': 'CTA', 'event_label': ctaName });
+            });
+        });
+
+        // Testimonials Carousel (Simples com scroll manual)
+        // O carousel atual é um flexbox com overflow-x: auto e scroll-snap-type.
+        // Isso oferece uma experiência de "carrossel" nativa do navegador sem JS complexo.
+        // Para um carrossel mais avançado com botões e autoplay, seria necessário mais JS.
+    </script>
 </body>
 </html>
