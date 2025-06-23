@@ -1,5 +1,5 @@
 /* Importação de fontes (ex: Google Fonts) - Substitua ou adicione as suas preferidas */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500;700&display=swap'); /* Adicionei weight 700 para Roboto */
 
 :root {
     --primary-color: #007bff; /* Azul vibrante */
@@ -23,6 +23,7 @@ body {
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--light-color);
+    overflow-x: hidden; /* Garante que não haverá rolagem horizontal indesejada */
 }
 
 .container {
@@ -36,6 +37,7 @@ h1, h2, h3 {
     font-family: 'Montserrat', sans-serif;
     color: var(--dark-color);
     margin-bottom: 15px;
+    word-wrap: break-word; /* Ajuda a evitar overflow em palavras muito longas */
 }
 
 h1 {
@@ -57,6 +59,7 @@ h3 {
 
 p {
     margin-bottom: 15px;
+    font-size: 1em; /* Garante tamanho base legível */
 }
 
 a {
@@ -83,6 +86,7 @@ ul {
     text-transform: uppercase;
     font-size: 1.1em;
     margin-top: 20px;
+    white-space: nowrap; /* Evita que o texto do botão quebre em várias linhas */
 }
 
 .btn-primary {
@@ -117,6 +121,7 @@ ul {
     gap: 10px;
     margin: 25px auto; /* Centraliza o botão WhatsApp */
     width: fit-content; /* Ajusta a largura ao conteúdo */
+    font-weight: 700; /* Torna o texto do botão mais legível */
 }
 
 .whatsapp-btn:hover {
@@ -142,14 +147,18 @@ header .container {
 
 header .logo {
     height: 50px; /* Ajuste o tamanho do seu logo */
+    min-width: 40px; /* Garante que o logo não fique muito pequeno */
 }
 
 header nav ul {
     display: flex;
+    flex-wrap: wrap; /* Permite que os itens do menu quebrem linha */
+    justify-content: flex-end; /* Alinha os itens à direita */
 }
 
 header nav ul li {
     margin-left: 30px;
+    white-space: nowrap; /* Evita que links de navegação quebrem em mobile */
 }
 
 header nav ul li a {
@@ -172,7 +181,7 @@ header nav ul li a:hover {
     justify-content: space-around;
     flex-wrap: wrap;
     position: relative;
-    overflow: hidden; /* Para garantir que a imagem não vaze */
+    /* overflow: hidden; Removi pois .hero-image já tem object-fit e overflow-x: hidden no body */
 }
 
 .hero .container {
@@ -207,6 +216,7 @@ header nav ul li a:hover {
     border-radius: 10px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
     object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+    flex-shrink: 0; /* Impede que a imagem encolha além do necessário */
 }
 
 /* Sections Gerais */
@@ -249,6 +259,11 @@ section:nth-child(odd) {
     color: var(--primary-color);
     margin-bottom: 10px;
 }
+.solucao-item p { /* Garante legibilidade do texto de descrição da solução */
+    font-size: 0.95em;
+    line-height: 1.5;
+}
+
 
 /* Beneficios Section */
 .beneficios ul {
@@ -263,6 +278,7 @@ section:nth-child(odd) {
     font-size: 1.1em;
     position: relative;
     padding-left: 30px;
+    text-align: left; /* Garante alinhamento esquerdo mesmo no mobile */
 }
 
 .beneficios ul li::before {
@@ -362,35 +378,44 @@ footer a:hover {
 /* Responsividade */
 @media (max-width: 768px) {
     h1 {
-        font-size: 2.2em;
+        font-size: 2.2em; /* Reduz o tamanho do H1 para telas menores */
     }
 
     h2 {
-        font-size: 1.8em;
+        font-size: 1.8em; /* Reduz o tamanho do H2 para telas menores */
+    }
+
+    .hero {
+        padding: 60px 0; /* Ajusta o padding do hero */
+        flex-direction: column; /* Coloca imagem e texto em coluna no mobile */
+        text-align: center;
     }
 
     .hero .container {
         padding-right: 0;
+        margin-bottom: 30px; /* Adiciona espaço entre o texto e a imagem */
         text-align: center;
     }
 
     .hero-image {
-        max-width: 80%;
-        margin-top: 40px;
+        max-width: 90%; /* Aumenta a imagem para ocupar mais espaço no mobile */
+        margin-top: 0; /* Remove a margem superior desnecessária aqui */
     }
 
     header .container {
         flex-direction: column;
+        align-items: center; /* Centraliza logo e menu */
     }
 
     header nav ul {
         margin-top: 10px;
         flex-wrap: wrap;
         justify-content: center;
+        gap: 10px; /* Adiciona um pequeno espaço entre os itens do menu */
     }
 
     header nav ul li {
-        margin: 0 15px 10px;
+        margin-left: 0; /* Remove margem lateral */
     }
 
     .solucoes .grid-solucoes {
@@ -399,36 +424,43 @@ footer a:hover {
 
     .beneficios ul {
         padding-left: 0;
+        text-align: center; /* Centraliza a lista de benefícios no mobile */
     }
 
     .beneficios ul li {
-        text-align: center;
-        padding-left: 0;
+        padding-left: 0; /* Remove padding que empurrava o checkmark */
+        text-align: center; /* Centraliza o texto do item */
     }
 
     .beneficios ul li::before {
-        position: static; /* Remove o posicionamento absoluto para centralizar */
-        display: block; /* Garante que o check fique em sua própria linha */
+        position: static; /* Coloca o checkmark acima do texto no mobile */
+        display: block;
         margin-bottom: 5px;
     }
 }
 
 @media (max-width: 480px) {
     h1 {
-        font-size: 1.8em;
+        font-size: 1.8em; /* Ajuste final para H1 em telas muito pequenas */
     }
     h2 {
-        font-size: 1.5em;
+        font-size: 1.5em; /* Ajuste final para H2 em telas muito pequenas */
     }
     .btn-primary, .btn-secondary, .whatsapp-btn {
-        padding: 10px 20px;
-        font-size: 1em;
+        padding: 10px 15px; /* Reduz padding dos botões */
+        font-size: 0.95em; /* Reduz fonte dos botões */
     }
     .hero {
-        padding: 50px 0;
+        padding: 40px 0;
     }
     .hero-image {
-        max-width: 90%;
+        max-width: 95%; /* Garante que a imagem se ajuste totalmente */
+    }
+    p, .form-group label, .form-group input, .form-group textarea {
+        font-size: 0.9em; /* Reduz o tamanho da fonte para o corpo do texto e formulário */
+    }
+    .phone-number {
+        font-size: 1.3em; /* Ajusta o tamanho do número de telefone */
     }
 }
 
