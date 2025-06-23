@@ -1,9 +1,169 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://craftprofissionais.store/</loc>
-    <lastmod>2023-10-27T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  </urlset>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+    <!-- Página Principal - Landing Page -->
+    <url>
+        <loc>https://craftprofissionais.store/</loc>
+        <lastmod>2025-06-23</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <image:image>
+            <image:loc>https://craftprofissionais.store/hero.jpg</image:loc>
+            <image:title>Craft Profissionais - Landing Page Para Prestadores de Serviços</image:title>
+            <image:caption>Profissional autônomo conectando-se com clientes através de landing page profissional</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://craftprofissionais.store/favicon.png</image:loc>
+            <image:title>Craft Profissionais - Logo</image:title>
+            <image:caption>Logo da Craft Profissionais especializada em landing pages</image:caption>
+        </image:image>
+    </url>
+
+    <!-- Seção de Serviços para SEO -->
+    <url>
+        <loc>https://craftprofissionais.store/#servicos</loc>
+        <lastmod>2025-06-23</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Seção de Processo -->
+    <url>
+        <loc>https://craftprofissionais.store/#processo</loc>
+        <lastmod>2025-06-23</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Seção de Depoimentos -->
+    <url>
+        <loc>https://craftprofissionais.store/#depoimentos</loc>
+        <lastmod>2025-06-23</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <!-- Seção de Contato -->
+    <url>
+        <loc>https://craftprofissionais.store/#contato</loc>
+        <lastmod>2025-06-23</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Landing pages específicas por profissão (para SEO segmentado) -->
+    <url>
+        <loc>https://craftprofissionais.store/eletricista</loc>
+        <lastmod>2025-06-23</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://craftprofissionais.store/cabeleireiro</loc>
+        <lastmod>2025-06-23</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://craftprofissionais.store/trancista</loc>
+        <lastmod>2025-06-23</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://craftprofissionais.store/personal-trainer</loc>
+        <lastmod>2025-06-23</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://craftprofissionais.store/encanador</loc>
+        <lastmod>2025-06-23</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://craftprofissionais.store/marceneiro</loc>
+        <lastmod>2025-06-23</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://craftprofissionais.store/maquiador</loc>
+        <lastmod>2025-06-23</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://craftprofissionais.store/professor-particular</loc>
+        <lastmod>2025-06-23</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Páginas de blog/conteúdo (para SEO) -->
+    <url>
+        <loc>https://craftprofissionais.store/como-criar-landing-page-prestador-servicos</loc>
+        <lastmod>2025-06-23</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://craftprofissionais.store/marketing-digital-prestadores-servicos</loc>
+        <lastmod>2025-06-23</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://craftprofissionais.store/whatsapp-business-prestadores-servicos</loc>
+        <lastmod>2025-06-23</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Política de Privacidade -->
+    <url>
+        <loc>https://craftprofissionais.store/politica-privacidade</loc>
+        <lastmod>2025-06-23</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+
+    <!-- Termos de Uso -->
+    <url>
+        <loc>https://craftprofissionais.store/termos-uso</loc>
+        <lastmod>2025-06-23</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+
+    <!-- FAQ -->
+    <url>
+        <loc>https://craftprofissionais.store/perguntas-frequentes</loc>
+        <lastmod>2025-06-23</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <!-- Portfólio -->
+    <url>
+        <loc>https://craftprofissionais.store/portfolio</loc>
+        <lastmod>2025-06-23</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+</urlset>
