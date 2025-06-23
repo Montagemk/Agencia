@@ -1,0 +1,319 @@
+/* Importação de fontes do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@300;400;700&display=swap');
+
+:root {
+    /* Cores */
+    --primary-color: #FF6B6B; /* Um vermelho/rosa vibrante */
+    --secondary-color: #4ECDC4; /* Um tom de azul esverdeado */
+    --accent-color: #45B7D1; /* Um azul mais claro */
+    --dark-color: #333333;
+    --light-color: #F8F8F8;
+    --white-color: #FFFFFF;
+    --text-color: #555555;
+
+    /* Fontes */
+    --heading-font: 'Poppins', sans-serif;
+    --body-font: 'Roboto', sans-serif;
+}
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--body-font);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--light-color);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Títulos */
+h1, h2, h3 {
+    font-family: var(--heading-font);
+    color: var(--dark-color);
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 2.8em;
+    color: var(--white-color);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+h2 {
+    font-size: 2.2em;
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+
+h3 {
+    font-size: 1.6em;
+    margin-bottom: 10px;
+}
+
+/* Botões */
+.button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: 15px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.button:hover {
+    background-color: #FF4F4F; /* Um pouco mais escuro */
+    transform: translateY(-2px);
+}
+
+.button.secondary {
+    background-color: var(--secondary-color);
+}
+
+.button.secondary:hover {
+    background-color: #3BBDBD; /* Um pouco mais escuro */
+}
+
+/* Seções */
+.section {
+    padding: 80px 0;
+}
+
+.section.bg-light {
+    background-color: var(--white-color);
+}
+
+.section.bg-primary {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.section.bg-primary h2, .section.bg-primary p {
+    color: var(--white-color);
+}
+
+/* Header - Hero Section */
+header {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/hero.jpg') no-repeat center center/cover;
+    color: var(--white-color);
+    text-align: center;
+    padding: 150px 0;
+    min-height: 600px; /* Garante altura mínima para a imagem */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header .container {
+    max-width: 800px;
+}
+
+.hero-subtitle {
+    font-size: 1.4em;
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+/* Seção de Benefícios */
+#beneficios .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+#beneficios .card {
+    background-color: var(--white-color);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#beneficios .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+}
+
+#beneficios .card img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+    /* Para os ícones, certifique-se de que eles estão na pasta /images/ e são PNGs */
+}
+
+#beneficios .card h3 {
+    color: var(--primary-color);
+    font-size: 1.4em;
+}
+
+#beneficios .card p {
+    font-size: 0.95em;
+    color: var(--text-color);
+}
+
+/* Para Quem É Section */
+#para-quem .list-beneficios {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+#para-quem .list-beneficios li {
+    background-color: var(--accent-color);
+    color: var(--white-color);
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: 500;
+    font-size: 1.1em;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#para-quem .cta-text {
+    text-align: center;
+    font-size: 1.3em;
+    margin-top: 40px;
+    font-weight: 600;
+    color: var(--dark-color);
+}
+
+/* Depoimentos */
+#depoimentos .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+#depoimentos .testimonial {
+    background-color: var(--white-color);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    font-style: italic;
+    position: relative;
+}
+
+#depoimentos .testimonial::before {
+    content: "“";
+    font-family: serif;
+    font-size: 4em;
+    color: var(--secondary-color);
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    opacity: 0.2;
+}
+
+#depoimentos .testimonial p {
+    font-size: 1.05em;
+    margin-bottom: 15px;
+    position: relative; /* Para o texto ficar acima do aspas */
+    z-index: 1;
+}
+
+#depoimentos .testimonial .author {
+    font-weight: 600;
+    color: var(--primary-color);
+    text-align: right;
+    font-style: normal;
+}
+
+/* CTA Final */
+#cta-final {
+    text-align: center;
+}
+
+#cta-final h2 {
+    color: var(--white-color);
+}
+
+#cta-final .button {
+    margin-top: 30px;
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark-color);
+    color: var(--white-color);
+    text-align: center;
+    padding: 30px 0;
+    font-size: 0.9em;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.2em;
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2em;
+    }
+
+    .section {
+        padding: 50px 0;
+    }
+
+    #beneficios .grid,
+    #depoimentos .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .button {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8em;
+    }
+
+    .hero-subtitle {
+        font-size: 1em;
+    }
+
+    .button {
+        display: block;
+        width: 90%;
+        margin: 20px auto;
+    }
+}
+
