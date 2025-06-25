@@ -234,11 +234,11 @@ section {
 }
 
 section:nth-child(even) {
-    background-color: royalblue;
+    background-color: white;
 }
 
 section:nth-child(odd) {
-    background-color: royalblue;
+    background-color: white;
 }
 
 /* Solucoes Section */
