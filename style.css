@@ -299,7 +299,7 @@ section:nth-child(odd) {
 /* Contato Section */
 /* Contato Section */
 .contato {
-    background-color: royalblue;
+    background-color: white;
     color: royalblue;
     padding: 60px 0;
 }
@@ -348,7 +348,7 @@ section:nth-child(odd) {
 
 /* Footer */
 footer {
-    background-color: royalblue;
+    background-color: white;
     color: white;
     padding: 20px 0;
     text-align: center;
