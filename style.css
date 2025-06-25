@@ -131,7 +131,7 @@ ul {
 
 /* Header */
 header {
-    background-color: white;
+    background-color: royalblue;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     padding: 10px 0;
     position: sticky;
@@ -200,7 +200,7 @@ header nav ul li a:hover {
 }
 
 .hero h1 {
-    color: royalblue;
+    color: white;
     font-size: 3.5em;
     margin-bottom: 20px;
     line-height: 1.2;
@@ -250,7 +250,7 @@ section:nth-child(odd) {
 }
 
 .solucao-item {
-    background-color: white;
+    background-color: royalblue;
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.08);
@@ -356,7 +356,7 @@ footer {
 }
 
 footer a {
-    color: white;
+    color: royalblue;
     text-decoration: underline;
 }
 
