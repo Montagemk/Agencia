@@ -234,7 +234,7 @@ section {
 }
 
 section:nth-child(even) {
-    background-color: var(--light-color);
+    background-color: var(--dark-color);
 }
 
 section:nth-child(odd) {
