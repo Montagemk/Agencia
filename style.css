@@ -234,7 +234,7 @@ section {
 }
 
 section:nth-child(even) {
-    background-color: var(--dark-color);
+    background-color: royalblue;
 }
 
 section:nth-child(odd) {
@@ -348,7 +348,7 @@ section:nth-child(odd) {
 
 /* Footer */
 footer {
-    background-color: var(--dark-color);
+    background-color: royalblue;
     color: white;
     padding: 20px 0;
     text-align: center;
