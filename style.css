@@ -172,9 +172,10 @@ header nav ul li a:hover {
 }
 
 /* Hero Section */
+
 .hero {
-    background-color: var(--dark-color);
-    color: var(--dark-color);
+    background-color: var(--dark-color); /* Fundo padrão escuro */
+    color: white; /* Garante que o texto padrão dentro do hero seja branco */
     padding: 80px 0;
     display: flex;
     align-items: center;
@@ -182,6 +183,13 @@ header nav ul li a:hover {
     flex-wrap: wrap;
     position: relative;
     /* overflow: hidden; Removi pois .hero-image já tem object-fit e overflow-x: hidden no body */
+}
+
+/* Garante que o parágrafo dentro do hero também seja branco, caso não esteja explícito */
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    color: white; /* Adicionado para garantir o contraste */
 }
 
 .hero .container {
@@ -289,6 +297,7 @@ section:nth-child(odd) {
 }
 
 /* Contato Section */
+/* Contato Section */
 .contato {
     background-color: royalblue;
     color: white;
@@ -296,34 +305,23 @@ section:nth-child(odd) {
 }
 
 .contato h2, .contato p {
-    color: white;
-}
-
-.contato .phone-number {
-    font-size: 1.5em;
-    font-weight: 700;
-    margin-top: 20px;
-    margin-bottom: 10px;
+    color: white; /* Mantenha, pois está correto */
 }
 
 .contato form {
     max-width: 600px;
     margin: 30px auto 0 auto;
-    background-color: royalblue;
+    background-color: rgba(0, 0, 0, 0.2); /* Adiciona um fundo semi-transparente para o formulário para melhor contraste e visual */
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     text-align: left;
 }
 
-.form-group {
-    margin-bottom: 20px;
-}
-
 .form-group label {
     display: block;
     margin-bottom: 8px;
-    color: var(--dark-color);
+    color: white; /* Alterado para branco para contrastar com o fundo azul */
     font-weight: 500;
 }
 
@@ -333,28 +331,19 @@ section:nth-child(odd) {
 .form-group textarea {
     width: 100%;
     padding: 12px;
-    border: 1px solid var(--border-color);
+    border: 1px solid white; /* Borda branca para visibilidade */
     border-radius: 5px;
     font-size: 1em;
-    color: var(--text-color);
+    color: var(--dark-color); /* Cor do texto digitado nos campos para ser legível no fundo branco dos inputs */
+    background-color: white; /* Fundo branco para os inputs */
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+/* Estilo para o placeholder dos inputs */
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #a0a0a0; /* Cor mais clara para o placeholder */
 }
 
-.form-group textarea {
-    resize: vertical;
-}
-
-.contato form .btn-primary {
-    width: 100%;
-    margin-top: 10px;
-    padding: 15px;
-}
 
 
 /* Footer */
